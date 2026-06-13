@@ -4,7 +4,6 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center px-6">
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -15,36 +14,53 @@ function Hero() {
           Hello, I'm
         </h2>
 
-        <h1 className="text-6xl font-bold">
+        <h1 className="text-5xl md:text-7xl font-bold text-white">
           Vallapuneni Bharathi
         </h1>
 
         <p className="mt-6 text-xl text-slate-300">
-          Computer Science Student | Web Developer
+          Computer Science Engineering Student | Aspiring Software Developer
         </p>
 
-        <p className="max-w-2xl mt-6 mx-auto text-slate-400">
-          Passionate about software development,
-          web technologies, and solving real-world
-          problems through technology.
+        <p className="max-w-3xl mt-6 mx-auto text-slate-400 text-lg leading-8">
+          Passionate about software development, web technologies, and solving
+          real-world problems through technology. I enjoy building responsive
+          web applications, learning modern technologies, and continuously
+          improving my programming and problem-solving skills.
         </p>
 
-        <div className="flex justify-center gap-6 mt-8">
-          <a href="https://github.com/bharathivallapuneni-coder" target="_blank" rel="noreferrer">
-            <FaGithub size={30} />
+        {/* Social Links */}
+        <div className="flex justify-center gap-8 mt-8 text-3xl">
+          <a
+            href="https://github.com/bharathivallapuneni-coder"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-cyan-400 transition duration-300"
+          >
+            <FaGithub />
           </a>
 
-          <a href="https://linkedin.com/in/bharathivallapuneni" target="_blank" rel="noreferrer">
-            <FaLinkedin size={30} />
+          <a
+            href="https://linkedin.com/in/bharathivallapuneni"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-cyan-400 transition duration-300"
+          >
+            <FaLinkedin />
           </a>
         </div>
 
-        <a
-          href="/resume.pdf"
-          className="inline-block mt-8 bg-cyan-500 hover:bg-cyan-600 transition px-6 py-3 rounded-lg"
-        >
-          Download Resume
-        </a>
+        {/* Resume Button */}
+        <div className="mt-10">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block bg-cyan-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-cyan-600 transition duration-300 shadow-lg"
+          >
+            Download Resume
+          </a>
+        </div>
       </motion.div>
     </section>
   );

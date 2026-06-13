@@ -26,7 +26,7 @@ function Projects() {
 
         <div className="grid md:grid-cols-2 gap-8">
 
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
