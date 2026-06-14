@@ -3,15 +3,17 @@ import { motion } from "framer-motion";
 function Projects() {
   const projects = [
     {
-      title: "RuralConnect",
+      title: "FoodConnect",
+      image: "FoodConnect prototype.png",
       description:
-        "A web platform that enables farmers to share and rent agricultural machinery, improving accessibility and reducing equipment costs.",
+        "FoodConnect is a web-based platform designed to reduce food wastage by connecting food donors with orphanages, old-age homes, and other organizations in need. Donors such as hostel owners and event organizers can share details about surplus food, including quantity, type, location, and contact information. Caretakers can view available donations and coordinate pickups, ensuring that excess food reaches those in need efficiently. The platform promotes food redistribution, minimizes waste, and contributes to community welfare through technology.",
       tech: ["HTML", "CSS", "JavaScript", "Node.js", "MongoDB"],
     },
     {
       title: "Expense Tracker",
+      image: "Expense tracker Prototype.png",
       description:
-        "A personal finance management application that helps users track expenses, savings, and analyze spending patterns.",
+        "Expense Tracker is a personal finance management web application designed to help users monitor and control their daily expenses. The platform allows users to record income and expenditures across different categories, making it easier to track spending habits and manage budgets effectively. It provides detailed expense analysis through daily, monthly, and yearly reports, helping users understand financial patterns and make informed decisions. By offering organized expense tracking and insightful summaries, the application supports better financial planning and savings management.",
       tech: ["React.js", "Node.js", "MongoDB"],
     },
   ];
@@ -46,6 +48,12 @@ function Projects() {
               <h3 className="text-2xl font-bold mb-4">
                 {project.title}
               </h3>
+
+              <img
+                src={`/projects/${encodeURIComponent(project.image)}`}
+                alt={project.title}
+                className="mb-5 h-48 w-full rounded-xl object-cover border border-slate-700"
+              />
 
               <p className="text-slate-300 leading-7">
                 {project.description}

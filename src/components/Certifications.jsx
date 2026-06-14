@@ -1,11 +1,26 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 function Certifications() {
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+
   const certificates = [
-    "Programming in Java - NPTEL, CodeChef",
-    "Java Programming Fundamentals - Infosys Springboard",
-    "HTML, CSS and JavaScript for Web Developers",
-    "Oracle Cloud Infrastructure Generative AI Professional Certificate",
+    {
+      title: "Programming in Java - CodeChef",
+      image: "codechef java certificate.jpg",
+    },
+    {
+      title: "Java Programming Fundamentals - Infosys Springboard",
+      image: "Java Infosys.jpg",
+    },
+    {
+      title: "HTML, CSS and JavaScript for Web Developers",
+      image: "web design.jpg",
+    },
+    {
+      title: "Oracle Cloud Infrastructure Generative AI Professional Certificate",
+      image: "oracle.jpg",
+    },
   ];
 
   return (
@@ -23,7 +38,7 @@ function Certifications() {
 
           {certificates.map((certificate, index) => (
             <motion.div
-              key={certificate}
+              key={certificate.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
@@ -40,11 +55,50 @@ function Certifications() {
                 transition
               "
             >
-              🏆 {certificate}
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-white">🏆 {certificate.title}</span>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCertificate(certificate)}
+                  className="rounded-md border border-cyan-400/40 px-3 py-1 text-sm text-cyan-400 hover:bg-cyan-400/10"
+                >
+                  View
+                </button>
+              </div>
             </motion.div>
           ))}
 
         </div>
+
+        {selectedCertificate && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+            onClick={() => setSelectedCertificate(null)}
+          >
+            <div
+              className="w-full max-w-4xl rounded-xl bg-slate-900 p-4 shadow-2xl"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <h3 className="text-xl font-semibold text-cyan-400">
+                  {selectedCertificate.title}
+                </h3>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCertificate(null)}
+                  className="rounded-md border border-slate-700 px-3 py-1 text-sm text-slate-300 hover:border-cyan-400 hover:text-cyan-400"
+                >
+                  Close
+                </button>
+              </div>
+              <img
+                src={`/certificates/${encodeURIComponent(selectedCertificate.image)}`}
+                alt={selectedCertificate.title}
+                className="max-h-[70vh] w-full rounded-lg object-contain"
+              />
+            </div>
+          </div>
+        )}
 
       </div>
     </section>
